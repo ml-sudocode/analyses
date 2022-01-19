@@ -36,4 +36,5 @@ Sample:
 
 Sources:
 * https://arxiv.org/abs/2103.12732
+* This by the Balancer Simulations team was really good: [Understanding Balancer Pools](https://medium.com/balancer-simulations/understanding-balancer-pools-c2b877dcc082)
 * Other papers and articles
