@@ -1,6 +1,6 @@
 # AMM simulation + visualization
 
-I found AMM math not very intuitive for the non-academic user. I created a spreadsheet to simulate what happens to the pool when you swap assets or add liquidity (link below). The fields are adjustable so you can play around with numbers to see their impact on the pool.
+I found AMM math not very intuitive for the non-academic user. I created a [spreadsheet](https://docs.google.com/spreadsheets/d/1iUrOd6Hwv7HTPKvif7isTQ5KoepZ-nGo-U2MuurslJE/) to simulate what happens to the pool when you swap assets or add liquidity (link below). The fields are adjustable so you can play around with numbers to see their impact on the pool.
 
 ---
 ### Sushiswap
@@ -24,14 +24,14 @@ THe different shape of curves results in different levels of slippage and tenden
 ---
 
 Sample:
-![simulator](/../Ignore/2022-01_AMMmath.png)
+![simulator](/../main/Ignore/2022-01_AMMmath.png)
 
 [Google spreadsheet here](https://docs.google.com/spreadsheets/d/1iUrOd6Hwv7HTPKvif7isTQ5KoepZ-nGo-U2MuurslJE/)
 
-Feedback, suggestions and requests welcome. Leave a comment or DM at Twitter @88crypt.
+***Feedback, suggestions and requests welcome. Leave a comment or DM at Twitter @88crypt.***
 
 ---
 
 Sources:
 * https://arxiv.org/abs/2103.12732
-* Other papers and articles.
+* Other papers and articles
