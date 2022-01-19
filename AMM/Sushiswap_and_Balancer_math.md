@@ -3,12 +3,15 @@
 I found AMM math not very intuitive for the non-academic user. I created a spreadsheet to simulate what happens to the pool when you swap assets or add liquidity (link below). The fields are adjustable so you can play around with numbers to see their impact on the pool.
 
 ---
+### Sushiswap
 
 Sushiswap (equiv to Uniswap v2) is the first example (first tab). It uses the "constant product" formula to price a trade; in English, "the product of the quantities of X and Y remains constant when a trade is made." When you swap X for Y, the price you get isn't the exact ratio of X:Y you see in the pool (e.g. if there is 1 ETH and 3000 DAI in a pool, you don't get 1 ETH for 3000 DAI). You always get an inferior price, because price slips down (or up, depending on your perspective) along a curve. The curve is defined by the function Y = k / X (or, k = X * Y, i.e. constant product). See the curve chart in the spreadsheet for reference. 
 
 When you add liquidity, however, "constant product" doesn't apply. The whole curve shift outwards, so the k in k = X * Y changes.
 
 ---
+
+### Balancer
 
 On the second tab, we look at Balancer. Balancer is known for using "constant weighted-product." In English, "the product of the quantities of X and Y, each weighted by a pre-determined exponent (power), remains constant when a trade is made." k = (quantity of A ^ chosen weight of A) * (quantity of B ^ chosen weight of B).
 
@@ -30,5 +33,5 @@ Feedback, suggestions and requests welcome. Leave a comment or DM at Twitter @88
 ---
 
 Sources:
-https://arxiv.org/abs/2103.12732
-Other papers and articles.
+* https://arxiv.org/abs/2103.12732
+* Other papers and articles.
