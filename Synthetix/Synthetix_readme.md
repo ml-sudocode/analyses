@@ -79,13 +79,13 @@ Overall, the modeling illustrates that:
 
 1) Being an SNX staker without mirroring the Synth pool closely means that I am effectively short all the traders that participate in Synth trading.
 
-It's not clear to me that this is a wise bet. You are accepting to be the counterparty of anyone who wants to buy a Synth. If he is a good trader, then you're going to be eating losses. It is counterintuitive to imagine that the way for Synthetix stakers to succeed is for them to attract bad traders rather than good traders.
+- It's not clear to me that this is a wise bet. You are accepting to be the counterparty of anyone who wants to buy a Synth. If he is a good trader, then you're going to be eating losses. It is counterintuitive to imagine that the way for Synthetix stakers to succeed is for them to attract bad traders rather than good traders.
 
 2) The model doesn't work without rich incentives programs.
 
-Here are some reasons that maintaining a Synthetix staking position presents certain challenges:
-- The SNX:sUSD stake:mint ratio is 600% (aka the collateralization ratio). If i want to mint $1000 of sUSD, i need to buy and deposit $6000 worth of SNX. This feels capital inefficient
-- Maintaining the collateralization ratio of 600% can be troublesome and expensive, as the value of the Synths and of SNX can change rapidly
+- Here are some reasons that maintaining a Synthetix staking position presents certain challenges:
+a) The SNX:sUSD stake:mint ratio is 600% (aka the collateralization ratio). If i want to mint $1000 of sUSD, i need to buy and deposit $6000 worth of SNX. This feels capital inefficient
+b) Maintaining the collateralization ratio of 600% can be troublesome and expensive, as the value of the Synths and of SNX can change rapidly
 At one point early on, the ratio of fees distributed to stakers from the Kwenta exchange to the value of SNX staking rewrds was about 1:10.
 
 
