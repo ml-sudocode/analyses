@@ -69,6 +69,8 @@ This model allows you to do two things:
 * [Google sheet version](https://docs.google.com/spreadsheets/d/1dSg_0sV7kBgdR911jB5-W6vDlghKe1MPSNO6Avm26ZI/)
 _Note: This was a simple Excel-to-Gsheets conversion, provided for convenience. It has not been checked for discrepancies that sometimes happen in conversions._
 
+![screenshot of model](/../main/Ignore/2022-01_synthetix.png)
+
 ____
 
 ### Thoughts
