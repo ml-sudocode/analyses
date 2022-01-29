@@ -89,6 +89,6 @@ b) Maintaining the collateralization ratio of 600% can be troublesome and expens
 At one point early on, the ratio of fees distributed to stakers from the Kwenta exchange to the value of SNX staking rewrds was about 1:10.
 
 
-Ultimately, these design elements may have contributed Synthetix's lackluster TVL as of January 2022, at about $500mn and No. 28 in a [ranking of top DeFi projects](https://www.defipulse.com/)] by TVL.
+Ultimately, these design elements may have contributed Synthetix's lackluster TVL as of January 2022, at about $500mn and No. 28 in a [ranking of top DeFi projects](https://www.defipulse.com/) by TVL.
 
 I really enjoyed the intellectual exercise of figuring this out. Let me know if you have feedback, further questions, or suggestions. DMs are open at Twitter @88crypt.
