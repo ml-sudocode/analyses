@@ -60,9 +60,9 @@ This model allows you to stake a variable amount of SNX, mint sUSD, then exchang
 
 The model also allows you to simulate the scenario where bitcoin changes in price adjust the value of Synths (sBTC in particular), to observe the effect it has on the Staker's P&L.
 
-Original model in Excel: [Excel model](~/2022-01-28_-_Synthetix.model.xlsx)
+* Original model in Excel: [Excel model](~/2022-01-28_-_Synthetix_model.xlsx)
 
-[Google sheet version](https://docs.google.com/spreadsheets/d/1dSg_0sV7kBgdR911jB5-W6vDlghKe1MPSNO6Avm26ZI/). This was a simple Excel-Gsheets conversion, provided for convenience, and has not been checked for discrepancies that sometimes happen in conversions.
+* [Google sheet version](https://docs.google.com/spreadsheets/d/1dSg_0sV7kBgdR911jB5-W6vDlghKe1MPSNO6Avm26ZI/). This was a simple Excel-Gsheets conversion, provided for convenience, and has not been checked for discrepancies that sometimes happen in conversions.
 
 ____
 
