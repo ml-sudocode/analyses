@@ -14,10 +14,10 @@ The explanations available online didn't feel complete in light of these questio
 
 ***Takeaway: My model illustrates how if you stake SNX and simply hold on to your sUSD, you are effectively short the pool of Synths.*** When the value of the debt pool's component Synths rises, you suffer a loss and may have to re-collateralize towards the 600% collateralization ratio. To protect yourself against this scenario, you need to exchange your minted sUSD for other Synths in the Synth pool (aka the "debt pool"), in the same ratio that they exist in the pool. For example, if there are $1 million worth of sUSD and $3 million worth of sBTC in the pool, and I staked SNX to mint $10,000 worth of sUSD, I would convert $7,500 into sBTC. In this way, when the price of bitcoin changes, you do not suffer a loss (or gain).
 
-__However, you would still on the hook for depositing more collateral if the value of the Synth pool rises and makes your collateralization ratio fall below 600%. Some related formulae:__
-  __* Collateralization ratio = user's SNX staked in Synthetix / user's share of the debt pool aka Debt Ratio__
-  __* Debt Ratio = (new sUSD minted from staking SNX / size of Synth pool at the time of minting sUSD) + incremental changes to the debt ratio based on changes in the debt pool arising from more sUSD minters and changes in the price of Synths__
-  __* Incremental changes to the debt ratio for other stakers based on changes in the debt pool aka "delta" = new mint / (existing debt + new mint).)__
+_However, you would still on the hook for depositing more collateral if the value of the Synth pool rises and makes your collateralization ratio fall below 600%. Some related formulae:_
+  _* Collateralization ratio = user's SNX staked in Synthetix / user's share of the debt pool aka Debt Ratio_
+  _* Debt Ratio = (new sUSD minted from staking SNX / size of Synth pool at the time of minting sUSD) + incremental changes to the debt ratio based on changes in the debt pool arising from more sUSD minters and changes in the price of Synths_
+  _* Incremental changes to the debt ratio for other stakers based on changes in the debt pool aka "delta" = new mint / (existing debt + new mint).)_
 ____
 
 ### Stating the unstated complexity
@@ -46,9 +46,9 @@ By elimination, and by intuition, it feels more like Synthetix is using Model (2
 
 **Also, what what is the role of the SNX token?**
 Are the economics of the system enough to sustain itself, without the SNX token incentives? Currently the sources of income or gains for stakers include:
-* 0.3% fees charged by Kwenta, the platform that facilitates trading of Synths among each other
-* rewards for staking
-* SNX rising in price
+* 0.3% trading fees charged by Kwenta, the platform that facilitates trading of Synths among each other
+* SNX emissions as rewards for staking
+* Staked SNX rising in price
 
 ____
 
@@ -56,13 +56,18 @@ ____
 
 I spent a fair amount of time building this model. The design of Synthetix is deceptively simple, and I had to trawl a lot of explainers before I found ones that provided good and detailed enough explanations.
 
-This model allows you to stake a variable amount of SNX, mint sUSD, then exchange some variable amount of sUSD to sBTC. You can then observe the effect it has on the staker's portfolio and debt liability.
+This model allows you to do two things:
 
-The model also allows you to simulate the scenario where bitcoin changes in price adjust the value of Synths (sBTC in particular), to observe the effect it has on the Staker's P&L.
+1) Stake a variable amount of SNX, mint sUSD, then exchange some variable amount of sUSD to sBTC. You can then observe the effect it has on the staker's portfolio and debt liability.
+
+2) Simulate the scenario where bitcoin changes in price adjust the value of Synths (sBTC in particular), to observe the effect it has on the Staker's P&L.
+
+**Files:**
 
 * Original model in Excel: [Excel model](2022-01-28_-_Synthetix_model.xlsx)
 
-* [Google sheet version](https://docs.google.com/spreadsheets/d/1dSg_0sV7kBgdR911jB5-W6vDlghKe1MPSNO6Avm26ZI/). This was a simple Excel-Gsheets conversion, provided for convenience, and has not been checked for discrepancies that sometimes happen in conversions.
+* [Google sheet version](https://docs.google.com/spreadsheets/d/1dSg_0sV7kBgdR911jB5-W6vDlghKe1MPSNO6Avm26ZI/)
+_Note: This was a simple Excel-to-Gsheets conversion, provided for convenience. It has not been checked for discrepancies that sometimes happen in conversions._
 
 ____
 
@@ -76,9 +81,11 @@ It's not clear to me that this is a wise bet. You are accepting to be the counte
 
 * The model doesn't work without rich incentives programs.
 
-Here are some reasons that maintaining a Synthetix staking position has significant barriers:
+Here are some reasons that maintaining a Synthetix staking position presents certain challenges:
 - The SNX:sUSD stake:mint ratio is 600% (aka the collateralization ratio). If i want to mint $1000 of sUSD, i need to buy and deposit $6000 worth of SNX. This feels capital inefficient
 - Maintaining the collateralization ratio of 600% can be troublesome and expensive, as the value of the Synths and of SNX can change rapidly
 At one point early on, the ratio of fees distributed to stakers from the Kwenta exchange to the value of SNX staking rewrds was about 1:10.
 
-Let me know if you have feedback, further questions, or suggestions. DMs are open at Twitter @88crypt.
+Ultimately, these design elements may be a contributor to why Synthetix's total TVL as of January 2022 is only about $500mn, at No. 28 in a [ranking of top DeFi projects(https://www.defipulse.com/)] by TVL.
+
+I really enjoyed the intellectual exercise of figuring this out. Let me know if you have feedback, further questions, or suggestions. DMs are open at Twitter @88crypt.
