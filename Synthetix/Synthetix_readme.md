@@ -84,8 +84,8 @@ Overall, the modeling illustrates that:
 2) The model doesn't work without rich incentives programs.
 
 - Here are some reasons that maintaining a Synthetix staking position presents certain challenges for stakers:
-(a) The SNX:sUSD stake:mint ratio is a rich 600% (aka the collateralization ratio). If i want to mint $1000 of sUSD, i need to buy and deposit $6000 worth of SNX. This feels capital inefficient.
-(b) Maintaining the collateralization ratio of 600% can be troublesome and expensive, as the value of the Synths and of SNX can change rapidly. 
+  - (a) The SNX:sUSD stake:mint ratio is a rich 600% (aka the collateralization ratio). If i want to mint $1000 of sUSD, i need to buy and deposit $6000 worth of SNX. This feels capital inefficient.
+  - (b) Maintaining the collateralization ratio of 600% can be troublesome and expensive, as the value of the Synths and of SNX can change rapidly. 
 
 This means that SNX holders need significant incentive rewards in order to stake.
 
