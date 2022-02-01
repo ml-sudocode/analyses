@@ -2,22 +2,25 @@
 
 ### Overview
 
-I wanted to dig into synthetic assets on DeFi and landed on Synthetix, unsurprisingly. Synthetic assets provide benefits like avoiding significant slippage on AMM-based DEXes when you trade, and providing exposure to assets from the real world (e.g. foreign exchange, commodities).
+I wanted to dig into synthetic assets on DeFi and landed on Synthetix, unsurprisingly. While not new today (January 2022), it's an interesting primitive to explore due to its complexity. 
 
-While trying to understand how the Synthetix model works, I discovered that the system is more complex that I am used to from a tradfi lens. This is partly because the system _is_ complex. After many hours of research, I realized the confusion/complexity also comes from inadequate explanation. The official docs and community blogs do well at explaining the high level stuff, such as how you could buy something that represents direct exposure to the price of bitcoin, but are pretty light on explaining how the whole system is held together mathematically.
+Synthetic assets provide benefits like avoiding significant slippage on AMM-based DEXes when you trade the underlying directly, and providing exposure to assets from the real world (e.g. foreign exchange, commodities). How synthetics achieve this differ from project to project.
+
+While trying to understand how the Synthetix model works, I discovered that the system is more complex that I am used to from a tradfi lens. This is partly because the system _is_ complex. After many hours of research, I realized the confusion/complexity also comes from incomplete explanations. The official docs and community blogs do well at explaining the high level stuff, such as how you could buy something that represents direct exposure to the price of bitcoin, but are pretty light on explaining how the whole system is held together mathematically.
 
 When reading about how Synthetics enables exposure to crypto without holding the underlying, and without paying hefty slippage costs on AMMs, one could easily be misled to think that taking part in Synthetix staking automatically represents participation in the global pool of synthetic products ("Synths"), meaning believing that one is long crypto. Is that true? How would that work?
 
-Or, one could buy sBTC, a Synth that represents price exposure to bitcoin. If the price of bitcoin spikes, when should I worry that my counterparty (effectively the SNX stakers) are able to meet their obligations so that the whole system stays solvent and I can capture my profits?
+Or, one could buy sBTC, a Synth that represents price exposure to bitcoin. If the price of bitcoin spikes, at what price point should I worry that my counterparty (effectively the SNX stakers) are still able and incentivized to meet their obligations so that the whole system stays solvent and I can cash in my profits?
 
 The explanations available online didn't feel complete in light of these questions. I didn't want to take the blog articles at face value, so I modeled out the economics behind Synthetix. Specifically, I focused on the outcomes for an SNX staker.
 
-***Takeaway: My model illustrates how if you stake SNX and simply hold on to your sUSD, you are effectively short the pool of Synths.*** When the value of the debt pool's component Synths rises, you suffer a loss and may have to re-collateralize towards the 600% collateralization ratio. To protect yourself against this scenario, you need to exchange your minted sUSD for other Synths in the Synth pool (aka the "debt pool"), in the same ratio that they exist in the pool. For example, if there are $1 million worth of sUSD and $3 million worth of sBTC in the pool, and I staked SNX to mint $10,000 worth of sUSD, I would convert $7,500 into sBTC. In this way, when the price of bitcoin changes, you do not suffer a loss (or gain).
+***Takeaway: My model illustrates how if you stake SNX and simply hold on to your sUSD, you are effectively short the pool of Synths.*** When the value of the debt pool's component Synths rises, you suffer a loss and may have to re-collateralize towards the 600% collateralization ratio. To protect yourself against this scenario, you need to exchange your minted sUSD for other Synths in the Synth pool (aka the "debt pool"), in the same ratio that they exist in the pool. For example, if there are $1 million worth of sUSD and $3 million worth of sBTC in the pool, and I staked SNX to mint $10,000 worth of sUSD, I would convert $7,500 into sBTC. In this way, when the price of bitcoin rises (or falls), you do not suffer a loss (or gain). If price rises I would still need to pony up more SNX as collateral, but I do not suffer a paper loss as I am not short the global Synth portolio.
 
-_However, you would still on the hook for depositing more collateral if the value of the Synth pool rises and makes your collateralization ratio fall below 600%. Some related formulae:_
-  _* Collateralization ratio = user's SNX staked in Synthetix / user's share of the debt pool aka Debt Ratio_
-  _* Debt Ratio = (new sUSD minted from staking SNX / size of Synth pool at the time of minting sUSD) + incremental changes to the debt ratio based on changes in the debt pool arising from more sUSD minters and changes in the price of Synths_
-  _* Incremental changes to the debt ratio for other stakers based on changes in the debt pool aka "delta" = new mint / (existing debt + new mint).)_
+_Some related formulae:_
+_* Collateralization ratio = user's SNX staked in Synthetix / user's share of the debt pool aka Debt Ratio_
+_* Debt Ratio = (new sUSD minted from staking SNX / size of Synth pool at the time of minting sUSD) + incremental changes to the debt ratio based on changes in the debt pool arising from more sUSD minters and changes in the price of Synths_
+_* Incremental changes to the debt ratio for other stakers based on changes in the debt pool aka "delta" = new mint / (existing debt + new mint).)_
+
 ____
 
 ### Stating the unstated complexity
@@ -40,21 +43,18 @@ For example, a credit default swap ("CDS") is a contract between two parties, a 
 
 A trader only needs to own the sBTC Synth in order to get full exposure to the price of bitcoin. This single-instrument set up means that Synthetix is unlikely to be using Model (1), which uses multiple instruments.
 
-By elimination, and by intuition, it feels more like Synthetix is using Model (2), the crux of which are counterparties that take the opposite side of the bitcoin price exposure.
+By elimination, and by intuition, it feels more like Synthetix is using Model (2), the crux of which is the existence of counterparties that take the opposite side of bitcoin price exposure.
 
-**So when someone buys sBTC, who is their counterparty?** Online explanations by Synthetix and third parties make direct and indirect claims that traders "do not need to worry about finding counterparties." This sounds too good to be true, which piqued my interest.
+**So when someone buys sBTC, who is their counterparty?** Online explanations by Synthetix claim that traders "do not need to worry about finding counterparties," while third party explanations go as far as to imply that no counterparties are involved. This sounds too good to be true, which piqued my interest.
 
 **Also, what what is the role of the SNX token?**
-Are the economics of the system enough to sustain itself, without the SNX token incentives? Currently the sources of income or gains for stakers include:
-* 0.3% trading fees charged by Kwenta, the platform that facilitates trading of Synths among each other
-* SNX emissions as rewards for staking
-* Staked SNX rising in price
+Are the economics of the system enough to sustain itself, without the SNX token incentives? 
 
 ____
 
 ### The Synthetix Staker's financial model
 
-I spent a fair amount of time building this model. The design of Synthetix is deceptively simple, and I had to trawl a lot of explainers before I found ones that provided good and detailed enough explanations.
+I spent a fair amount of time building this model. The design of Synthetix is deceptively simple, and I had to trawl a number of analyses before I found ones that sufficiently filled in the holes in the picture.
 
 This model allows you to do two things:
 
@@ -79,14 +79,22 @@ Overall, the modeling illustrates that:
 
 1) Being an SNX staker without mirroring the Synth pool closely means that I am effectively short all the traders that participate in Synth trading.
 
-- It's not clear to me that this is a wise bet. You are accepting to be the counterparty of anyone who wants to buy a Synth. If he is a good trader, then you're going to be eating losses. It is counterintuitive to imagine that the way for Synthetix stakers to succeed is for them to attract bad traders rather than good traders.
+- It's not clear to me that this is a wise bet. You are accepting a position as counterparty to anyone who wants to buy a Synth. If he is a good trader, then you're going to be eating losses. It is counterintuitive to imagine that the way for Synthetix stakers to succeed is for them to attract bad traders rather than good traders.
 
 2) The model doesn't work without rich incentives programs.
 
-- Here are some reasons that maintaining a Synthetix staking position presents certain challenges:
-a) The SNX:sUSD stake:mint ratio is 600% (aka the collateralization ratio). If i want to mint $1000 of sUSD, i need to buy and deposit $6000 worth of SNX. This feels capital inefficient
-b) Maintaining the collateralization ratio of 600% can be troublesome and expensive, as the value of the Synths and of SNX can change rapidly
-At one point early on, the ratio of fees distributed to stakers from the Kwenta exchange to the value of SNX staking rewrds was about 1:10.
+- Here are some reasons that maintaining a Synthetix staking position presents certain challenges for stakers:
+(a) The SNX:sUSD stake:mint ratio is a rich 600% (aka the collateralization ratio). If i want to mint $1000 of sUSD, i need to buy and deposit $6000 worth of SNX. This feels capital inefficient.
+(b) Maintaining the collateralization ratio of 600% can be troublesome and expensive, as the value of the Synths and of SNX can change rapidly. 
+
+This means that SNX holders need significant incentive rewards in order to stake.
+
+Currently the sources of income or gains for stakers include:
+* 0.3% trading fees charged by Kwenta, the platform that facilitates trading of Synths among each other. This is a sustainable incentive
+* SNX emissions as rewards for staking. This is not a sustainable incentive
+* Staked SNX rising in price
+
+Empirically, the sustainable incentive of trading platform fees paled in comparison to SNX emission rewards. At one point early on, the ratio of fees distributed to stakers from the Kwenta exchange to the value of SNX staking rewards was a paltry 1:10.
 
 
 Ultimately, these design elements may have contributed Synthetix's lackluster TVL as of January 2022, at about $500mn and No. 28 in a [ranking of top DeFi projects](https://www.defipulse.com/) by TVL.
