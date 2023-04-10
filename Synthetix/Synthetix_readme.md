@@ -99,4 +99,4 @@ Empirically, the sustainable incentive of trading platform fees paled in compari
 
 Ultimately, these design elements may have contributed Synthetix's lackluster TVL as of January 2022, at about $500mn and No. 28 in a [ranking of top DeFi projects](https://www.defipulse.com/) by TVL.
 
-I really enjoyed the intellectual exercise of figuring this out. Let me know if you have feedback, further questions, or suggestions. DMs are open at Twitter @88crypt.
+I really enjoyed the intellectual exercise of figuring this out. Let me know if you have feedback, further questions, or suggestions. DMs are open at Twitter @michlai007.
